@@ -39,3 +39,38 @@ async function runSummarizer(text) {
 
     return output[0].summary_text;
 }
+//to fetch transcript request
+chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
+ if (request.action === "fetchTranscript") {
+        
+        // 1. Get all cookies for YouTube
+        chrome.cookies.getAll({ domain: "youtube.com" }, (cookies) => {
+            
+            // 2. Format them into a standard "Key=Value" string
+            let cookieString = cookies.map(c => `${c.name}=${c.value}`).join("; ");
+
+            console.log("🍪 Sending Cookies to Python...");
+
+            // 3. Send URL + Cookies to Python
+            fetch('http://127.0.0.1:5000/get_transcript', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ 
+                    url: request.url,
+                    cookies: cookieString // 👈 Sending the passport!
+                })
+            })
+            .then(res => res.json())
+            .then(data => {
+                if (data.status === "success") {
+                    sendResponse({ status: "success", transcript: data.transcript });
+                } else {
+                    sendResponse({ status: "error", message: data.message });
+                }
+            })
+            .catch(err => sendResponse({ status: "error", message: err.message }));
+        });
+
+        return true; // Keep connection open
+    }
+});

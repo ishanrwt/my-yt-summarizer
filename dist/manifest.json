@@ -3,10 +3,10 @@
   "name": "T5 News Summarizer",
   "version": "1.0",
   "description": "Offline AI summarizer using T5.",
-  "permissions": ["activeTab", "scripting"],
+  "permissions": ["activeTab", "scripting", "cookies"], 
   "host_permissions": [
-    "https://huggingface.co/*",
-    "https://*.huggingface.co/*"
+    "https://www.youtube.com/*",
+    "http://127.0.0.1:5000/*"
   ],
   "action": {
     "default_popup": "popup.html",
