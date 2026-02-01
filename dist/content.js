@@ -1,0 +1,1 @@
+console.log("✅ Content Script Loaded on YouTube!"),chrome.runtime.onMessage.addListener((e,t,o)=>{if("getPageData"===e.action){const e=document.querySelector("#title > h1 > yt-formatted-string");o({title:e?e.innerText:"No Title Found",url:window.location.href,status:"success"})}return!0});

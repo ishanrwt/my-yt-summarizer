@@ -1,0 +1,32 @@
+{
+  "manifest_version": 3,
+  "name": "T5 News Summarizer",
+  "version": "1.0",
+  "description": "Offline AI summarizer using T5.",
+  "permissions": ["activeTab", "scripting"],
+  "host_permissions": [
+    "https://huggingface.co/*",
+    "https://*.huggingface.co/*"
+  ],
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "icons/icon16.png",
+      "48": "icons/icon48.png",
+      "128": "icons/icon128.png"
+    }
+  },
+  "background": {
+    "service_worker": "background.js",
+    "type": "module"
+  },
+  "content_security_policy": {
+    "extension_pages": "script-src 'self' 'wasm-unsafe-eval'; object-src 'self';"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://www.youtube.com/watch*"],
+      "js": ["content.js"]
+    }
+  ]
+}
