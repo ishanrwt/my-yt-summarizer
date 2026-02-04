@@ -1,1 +1,24 @@
-/node_modules
+# Dependencies
+node_modules/
+package-lock.json
+
+# Build output
+dist/
+
+# Environment variables
+.env
+.env.local
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Export folder (if you want to ignore it)
+# export-to-onnx/__pycache__/
+# export-to-onnx/*.pyc

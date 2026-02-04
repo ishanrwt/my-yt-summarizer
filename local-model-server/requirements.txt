@@ -1,0 +1,6 @@
+flask>=2.3.0
+flask-cors>=4.0.0
+torch>=2.0.0
+transformers>=4.30.0
+sentencepiece>=0.1.99
+yt-dlp>=2023.10.0

@@ -1,0 +1,61 @@
+/* src/styles.css */
+.yt-summary-container {
+    background-color: #0f0f0f; /* YouTube Dark BG */
+    border: 1px solid #303030;
+    border-radius: 12px;
+    padding: 15px;
+    margin-bottom: 15px;
+    color: white;
+    font-family: "Roboto", sans-serif;
+    font-size: 14px;
+    z-index: 9999;
+}
+
+.yt-summary-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.yt-summary-title {
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.yt-summary-btn {
+    background-color: #3ea6ff; /* YouTube Blue */
+    color: black;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 18px;
+    font-weight: 500;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.yt-summary-btn:hover {
+    background-color: #65b8ff;
+}
+
+.yt-summary-content {
+    margin-top: 10px;
+    line-height: 1.5;
+    white-space: pre-wrap; /* Keeps formatting */
+    max-height: 400px;
+    overflow-y: auto;
+}
+
+/* Spinner */
+.yt-loader {
+    border: 4px solid #f3f3f3;
+    border-top: 4px solid #3ea6ff;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    animation: spin 1s linear infinite;
+    display: none;
+    margin: 10px auto;
+}
+
+@keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }

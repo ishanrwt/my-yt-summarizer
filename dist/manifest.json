@@ -3,13 +3,16 @@
   "name": "T5 News Summarizer",
   "version": "1.0",
   "description": "Offline AI summarizer using T5.",
-  "permissions": ["activeTab", "scripting", "cookies"], 
+  "permissions": [
+    "activeTab",
+    "scripting",
+    "cookies"
+  ],
   "host_permissions": [
     "https://www.youtube.com/*",
     "http://127.0.0.1:5000/*"
   ],
   "action": {
-    "default_popup": "popup.html",
     "default_icon": {
       "16": "icons/icon16.png",
       "48": "icons/icon48.png",
@@ -26,7 +29,17 @@
   "content_scripts": [
     {
       "matches": ["https://www.youtube.com/watch*"],
-      "js": ["content.js"]
+      "js": ["content.js"],
+      "css": ["styles.css"]
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": [
+        "ort-wasm-simd.wasm",
+        "models/**/*"
+      ],
+      "matches": ["<all_urls>"]
     }
   ]
 }
