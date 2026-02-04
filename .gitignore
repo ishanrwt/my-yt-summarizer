@@ -19,6 +19,6 @@ dist/
 .DS_Store
 Thumbs.db
 
-# Export folder (if you want to ignore it)
-# export-to-onnx/__pycache__/
-# export-to-onnx/*.pyc
+# Sensitive data
+local-model-server/cookies.txt
+
